@@ -4,6 +4,7 @@ namespace Icons.CLI;
 
 internal static class Colors
 {
+    // from VGACON.ASM
     //    ; Red,Grn,Blu
     //vga_pallet:
 
