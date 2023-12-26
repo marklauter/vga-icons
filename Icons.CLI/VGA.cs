@@ -99,20 +99,20 @@ internal static class VGA
     /// combines 4 planes into single pixel based on the bit offset
     /// </summary>
     private static byte ReadPixel(
-        int bit,
+        int pixelBit,
         byte[] planeBytes)
     {
-        var pixel = (byte)0x00;
-        var pixelMask = (byte)(0x80 >> bit);
+        var pixel = 0x00;
+        var pixelMask = 0x80 >> pixelBit;
         for (var i = 0; i < planeBytes.Length; ++i)
         {
-            if ((byte)(planeBytes[i] & pixelMask) != 0)
+            if ((planeBytes[i] & pixelMask) != 0)
             {
-                pixel |= (byte)(0x01 << i);
+                pixel |= 0x01 << i;
             }
         }
 
-        return pixel;
+        return (byte)pixel;
     }
 
     /// <summary>
